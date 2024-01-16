@@ -1,12 +1,18 @@
 function MondatKiegeszit(props)
 {
-    const MONDAT = props.mondat.mondat.split(" ");
+    console.log();
+    const MONDAT_RESZEK = props.mondat.mondat.split("_");
     return (
         <div className="mondat-kiegeszit">
-            <div>{MONDAT.map((elem, index) => elem !== "_" ? elem + " " : (
-                <input key={index} type="text" onChange={event => props.onChange(event.target.value)} />
-            ))}({props.mondat.alap}) {props.helyes}</div>
-            <button className={props.gombAktiv} onClick={props.gombOnClick}>Tovább</button>
+            <form onSubmit={event => {
+                event.preventDefault();
+                props.onSubmit(event.target.childNodes[1].value)}
+            }>
+                <div>{MONDAT_RESZEK[0]}</div>
+                <input type="text" value={props.value} />
+                <div>{MONDAT_RESZEK[1]} ({props.mondat.alap})</div>
+                <input type="submit" value="Ok" />
+            </form>
         </div>
     );
 }

@@ -43,12 +43,12 @@ export const szenvedoMondatok = [
         alap: "not plan",
         valasztas: ["wasn't planned", "isn't planned", "planned"],
     },
-    {
+    /*{
         magyar: "Japánban készült az autód egy évvel ezelőtt?",
         mondat: "_ your car _ in Japan a year ago?",
         alap: "make",
         valasztas: ["made", "was made", "is made", "made"],
-    },
+    },*/
     {
         magyar: "Minden évben ültetek virágokat.",
         mondat: "I _ flowers every year.",

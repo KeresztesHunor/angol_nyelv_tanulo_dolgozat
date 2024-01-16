@@ -6,6 +6,7 @@ class Model
     #segitseg;
     #mondatok;
     #jelenlegiMondatIndex;
+    #pontszam;
 
     constructor()
     {
@@ -17,6 +18,7 @@ class Model
             this.#mondatok.push(szenvedoMondatok[i]);
         }
         this.#jelenlegiMondatIndex = 0;
+        this.#pontszam = 0;
     }
 
     get fejlec()
@@ -34,6 +36,11 @@ class Model
         return this.#mondatok[this.#jelenlegiMondatIndex];
     }
 
+    get pontszam()
+    {
+        return this.#pontszam;
+    }
+
     helyes(szoveg)
     {
         return this.#mondatok[this.#jelenlegiMondatIndex].valasztas[0] === szoveg;
@@ -45,6 +52,11 @@ class Model
         {
             this.#jelenlegiMondatIndex = 0;
         }
+    }
+
+    pontszamotNovel()
+    {
+        this.#pontszam++;
     }
 }
 

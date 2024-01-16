@@ -21,9 +21,13 @@
   border-radius: 8px;
 }
 
-.mondat-kiegeszit > button {
+.mondat-kiegeszit > form > button {
   margin: auto;
   margin-top: 4px;
+}
+
+.mondat-kiegeszit > form > * {
+  display: inline-block;
 }
 
 .inaktiv {

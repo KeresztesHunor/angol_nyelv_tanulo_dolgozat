@@ -4,30 +4,20 @@ import MondatKiegeszit from "./MondatKiegeszit";
 function Kiegeszit(props)
 {
     const [mondat, setMondat] = useState(props.model.jelenlegiMondat);
-    const [gombAktiv, setGombAktiv] = useState("inaktiv");
-    const [helyes, setHelyes] = useState("❌");
-    const setInaktiv = () => {
-        setGombAktiv("inaktiv");
-        setHelyes("❌");
-    };
+    const [pontszam, setPontszam] = useState(props.model.pontszam);
     return (
         <div>
             <h2>{props.model.fejlec}</h2>
-            <MondatKiegeszit mondat={mondat} gombAktiv={gombAktiv} helyes={helyes} onChange={value => {
+            <MondatKiegeszit mondat={mondat} onSubmit={value => {
                 if (props.model.helyes(value))
                 {
-                    setGombAktiv("aktiv");
-                    setHelyes("✔");
+                    props.model.pontszamotNovel();
+                    setPontszam(props.model.pontszam);
                 }
-                else
-                {
-                    setInaktiv();
-                }
-            }} gombOnClick={() => {
                 props.model.jelenlegiMondatIndexetLeptet();
                 setMondat(props.model.jelenlegiMondat);
-                setInaktiv();
-            }}/>
+            }} />
+            <div>Pontszám: {pontszam}</div>
         </div>
     );
 }
